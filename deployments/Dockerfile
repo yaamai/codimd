@@ -3,6 +3,7 @@ FROM node:8.15.1-jessie AS BUILD
 WORKDIR /codimd
 
 COPY . ./
+RUN curl -Lo- https://patch-diff.githubusercontent.com/raw/hackmdio/codimd/pull/1135.diff | patch -p1
 
 RUN yarn install --non-interactive --pure-lockfile && \
     yarn build
