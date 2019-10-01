@@ -11,9 +11,11 @@ RUN /codimd/apply-growi-agent.sh
 # overwrite HackMD config file
 RUN rm -f /files/config.json && rm -f /codimd/config.json
 COPY deployments/config.json /files/
-RUN ln -s /files/config.json /codimd/config.json
+RUN mkdir -p /codimd/config && ln -s /files/config.json /codimd/config/config.json
 
 # create sqlite data dir
 RUN mkdir /files/sqlite && chown codimd /files/sqlite
 RUN ln -s /files/sqlite /codimd/sqlite
+
+COPY deployments/docker-entrypoint.sh /codimd/docker-entrypoint.sh
 USER codimd

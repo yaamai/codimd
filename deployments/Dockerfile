@@ -22,7 +22,7 @@ ARG UID=1500
 ARG GID=1500
 
 RUN set +x -ue && \
-    wget https://github.com/hackmdio/portchecker/releases/download/v1.0.1/portchecker-linux-amd64.tar.gz && \
+    wget https://github.com/hackmdio/portchecker/releases/download/v1.0.2/portchecker-linux-amd64.tar.gz && \
     tar xvf portchecker-linux-amd64.tar.gz -C /usr/local/bin && \
     mv /usr/local/bin/portchecker-linux-amd64 /usr/local/bin/pcheck && \
     # Add user and groupd
